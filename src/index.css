@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  word-wrap: break-word;
+  /* background-color: rgb(34, 29, 59); */
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo_add {
+  /* display: inline-block; */
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 50px 20px;
+}
+
+.input_field {
+  /* width: 200px; */
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  grid-column: 1 / span 4;
+}
+
+.input_field:focus {
+  border: 1px solid black;
+}
+
+.todo_button {
+  padding: 8px 16px;
+  grid-row: 2;
+  grid-column: auto / span 2;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(68, 196, 255);
+  cursor: pointer;
+}
+
+.todo_button:hover {
+  background-color: rgb(64, 182, 236);
+}
+
+.active_todos {
+  margin-top: 0px;
+}
+
+#todos {
+  font-size: larger;
+  user-select: none;
+  padding: 10px 50px;
+  margin: 10px 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(212, 212, 212);
+  cursor: pointer;
+}
+
+#todos label {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#todos.done {
+  background-color: yellow;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
