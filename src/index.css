@@ -17,6 +17,7 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
 }
 
 header {
@@ -25,9 +26,54 @@ header {
   background-color: #ffffff;
   box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
+
+header#dark {
+  background-color: rgb(30, 24, 49);
+  color: white;
+  box-shadow: none;
+  border-bottom: 1px solid white;
+}
+
+.App#dark {
+  background-color: rgb(19, 17, 22);
+  color: white;
+}
+
+.App#dark input[type="text"] {
+  background-color: rgb(20, 15, 20);
+  border-color: white;
+  color: white;
+}
+
+.App#dark input[type="text"]::placeholder {
+  color: white;
+}
+
+.App#dark .todo_add input[type="button"] {
+  background-color: rgb(53, 39, 65);
+  color: white;
+  border-color: white;
+}
+
+.App#dark .todo_add input[type="button"]:hover {
+  background-color: rgb(65, 48, 80);
+}
+
+.App#dark #todos {
+  background-color: rgb(48, 24, 68);
+  box-shadow: 0 0 5px rgb(53, 50, 58);
+}
+
+.App#dark #todos.done {
+  background-color: #211242;
+}
+
+/* header > input {
+  
+} */
 
 .todo_add {
   /* display: inline-block; */

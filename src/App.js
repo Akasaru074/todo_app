@@ -7,12 +7,19 @@ function App() {
 
   const [input, setInput] = React.useState("");
 
+  const [darkMode, setDarkMode] = React.useState(JSON.parse(localStorage.getItem("darkMode")) || false);
+
   React.useEffect(()=>{
     localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos])
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [todos, darkMode])
 
   function handleInputChange (e) {
     setInput(e.target.value)
+  }
+
+  function toggleDarkMode () {
+    setDarkMode(prevMode => !prevMode);
   }
 
   function handleCheckboxChange (e) {
@@ -42,7 +49,7 @@ function App() {
 
   const todoElements = todos.map((todo, l) => {
     return (
-      <div id="todos" data-num={l} className={todos[l].done ? "done" : ""} onClick={handleCheckboxChange}>
+      <div key={l} id="todos" data-num={l} className={todos[l].done ? "done" : ""} onClick={handleCheckboxChange}>
         <input type="checkbox" data-num={l} checked={todos[l].done} readOnly={true} />
         <label data-num={l}>{todo.text}</label>
       </div>
@@ -52,11 +59,11 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Header />
+    <div className="App" id={darkMode ? "dark" : ""}>
+      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className = "todo_add">
-        <input type = "text" placeholder="Type todo" className="input_field" onChange={handleInputChange} value={input} />
+        <input type="text" placeholder="Type todo" className="input_field" onChange={handleInputChange} value={input} />
         <input type="button" value = "Add todo" className="todo_button" onClick={addTodo} />
         <input type="button" value = "Clear done todos" className="todo_button" onClick={clearDoneTodos} />
       </div>
