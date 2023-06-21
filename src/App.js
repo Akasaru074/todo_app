@@ -69,6 +69,10 @@ function App() {
       </div>
 
       <div className="active_todos">
+        <div className="todo_count">
+          <h4>Current: {todos.filter(i => i.done === false).length}</h4>
+          <h4>Done: {todos.filter(i => i.done === true).length}</h4>
+        </div>
         <h2>Todos:</h2>
         {todoElements}
       </div>
