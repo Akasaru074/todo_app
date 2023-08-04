@@ -31,19 +31,19 @@ header {
 }
 
 header#dark {
-  background-color: rgb(30, 24, 49);
+  background-color: #0F3460;
   color: white;
   box-shadow: none;
   border-bottom: 1px solid white;
 }
 
 .App#dark {
-  background-color: rgb(19, 17, 22);
+  background-color: #16213E;
   color: white;
 }
 
 .App#dark input[type="text"] {
-  background-color: rgb(20, 15, 20);
+  background-color: #0F3460;
   border-color: white;
   color: white;
 }
@@ -53,22 +53,38 @@ header#dark {
 }
 
 .App#dark .todo_add input[type="button"] {
-  background-color: rgb(53, 39, 65);
+  background-color: #E94560;
   color: white;
   border-color: white;
 }
 
 .App#dark .todo_add input[type="button"]:hover {
-  background-color: rgb(65, 48, 80);
+  background-color: #992c3e;
 }
 
 .App#dark #todos {
-  background-color: rgb(48, 24, 68);
-  box-shadow: 0 0 5px rgb(53, 50, 58);
+  background-color: #533483;
+  box-shadow: 0 0 5px rgb(65, 51, 87);
 }
 
 .App#dark #todos.done {
-  background-color: #211242;
+  background-color: #2f123f;
+}
+
+.App#dark .dropdown_button {
+  background-color: #E94560;
+}
+
+.App#dark .dropdown_button:hover {
+  background-color: #a32b3f;
+}
+
+.App#dark .dropdown_menu {
+  background-color: #E94560;
+}
+
+.App#dark .dropdown_option:hover {
+  background-color: #992d3f;
 }
 
 /* header > input {
@@ -95,7 +111,7 @@ header#dark {
 }
 
 .input_field:focus {
-  border: 1px solid black;
+  border-color: black;
 }
 
 .todo_button {
@@ -125,6 +141,7 @@ header#dark {
 .todo_count {
   display: grid;
   column-gap: 10px;
+  justify-content: center;
 }
 
 .todo_count h4 {
@@ -133,6 +150,10 @@ header#dark {
 }
 
 #todos {
+  display: grid;
+  grid-template-columns: .3fr 2fr 1fr;
+  align-items: center;
+  position: relative;
   font-size: larger;
   user-select: none;
   padding: 10px 50px;
@@ -143,13 +164,149 @@ header#dark {
   cursor: pointer;
 }
 
+#todos input[type="checkbox"] {
+  justify-self: right;
+}
+
 #todos label {
   margin-left: 10px;
   cursor: pointer;
+  justify-self: start;
 }
 
 #todos.done {
   background-color: yellow;
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+#todos.done .dropdown_button {
+  background-color: inherit;
+}
+
+.dropdown_button {
+  outline: none;
+  border: none;
+  background-color: #fff;
+  background-image: url("/src/images/dots.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  justify-self: end;
+  margin-left: 5px;
+}
+
+.dropdown_button:hover {
+  background-color: #ececec;
+}
+
+.dropdown_menu {
+  position: absolute;
+  background-color: #fff;
+  width: 250px;
+  height: 150px;
+  right: -60px;
+  top: -170px;
+  box-shadow: 0 0 2px black;
+  border-radius: 5px;
+  cursor: default;
+}
+
+div.hidden {
+  display: none;
+}
+
+.dropdown_option {
+  width: 100%;
+  padding: 10px 0;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  /* border: 1px solid rgb(59, 59, 59);
+  border-radius: 5px; */
+  border-bottom: 1px solid rgb(59, 59, 59);
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown_option:hover {
+  background-color: rgb(209, 209, 209);
+}
+
+.rename_popup {
+  display: flex;
+  position: absolute;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.rename_popup .rename_window {
+  width: 350px;
+  height: 250px;
+  background-color: #ffffff;
+  z-index: 2;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rename_popup .bg_blur {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  /* backdrop-filter: blur(1px); */
+}
+
+.rename_window_container {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  /* column-gap: 5px; */
+}
+
+.rename_window .rename_field {
+  grid-column: 1 / -1;
+  padding: 15px 5px;
+  border: 1px solid grey;
+  outline: none;
+  border-radius: 5px;
+}
+
+.rename_field:focus {
+  border-color: black;
+}
+
+.rename_window input[type=button] {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.rename_window input[type=button]:hover {
+  cursor: pointer;
+  filter: brightness(80%)
+}
+
+.rename_window .cancel-button {
+  background-color: #ff1c1c;
+  grid-row: 5;
+  grid-column: span 2;
+}
+
+.rename_window .confirm-button {
+  background-color: #1fca1f;
+  grid-row: 5;
+  grid-column: 5 / span 2;
 }
