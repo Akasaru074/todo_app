@@ -55,7 +55,8 @@ header#dark {
 .App#dark .todo_add input[type="button"] {
   background-color: #E94560;
   color: white;
-  border-color: white;
+  /* border-color: white; */
+  border: none;
 }
 
 .App#dark .todo_add input[type="button"]:hover {
@@ -63,28 +64,34 @@ header#dark {
 }
 
 .App#dark #todos {
-  background-color: #533483;
-  box-shadow: 0 0 5px rgb(65, 51, 87);
+  background-color: #1d2f60;
+  /* box-shadow: 0 0 5px rgb(65, 51, 87); */
+  box-shadow: none;
 }
 
 .App#dark #todos.done {
-  background-color: #2f123f;
+  background-color: #0e1f50;
 }
 
 .App#dark .dropdown_button {
-  background-color: #E94560;
+  /* background-color: #E94560; */
+  background-color: #478EEA;
 }
 
 .App#dark .dropdown_button:hover {
-  background-color: #a32b3f;
+  /* background-color: #a32b3f; */
+  /* filter: brightness(.7); */
+  background-color: #2a61a8;
 }
 
 .App#dark .dropdown_menu {
-  background-color: #E94560;
+  /* background-color: #E94560; */
+  background-color: #475BAA;
 }
 
 .App#dark .dropdown_option:hover {
-  background-color: #992d3f;
+  /* background-color: #992d3f; */
+  background-color: #314080;
 }
 
 /* header > input {
@@ -119,14 +126,17 @@ header#dark {
   grid-row: 2;
   grid-column: auto / span 2;
   outline: none;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border: none;
   border-radius: 5px;
-  background-color: rgb(68, 196, 255);
+  background-color: rgb(126, 218, 255);
   cursor: pointer;
+  font-size: large;
 }
 
 .todo_button:hover {
-  background-color: rgb(64, 182, 236);
+  /* background-color: rgb(39, 168, 228); */
+  filter: brightness(0.85);
 }
 
 .active_todos {
@@ -224,11 +234,11 @@ div.hidden {
 .dropdown_option {
   width: 100%;
   padding: 10px 0;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  /* margin-left: 50%;
+  transform: translateX(-50%); */
   /* border: 1px solid rgb(59, 59, 59);
   border-radius: 5px; */
-  border-bottom: 1px solid rgb(59, 59, 59);
+  /* border-bottom: 1px solid rgb(59, 59, 59); */
   text-align: center;
   cursor: pointer;
 }
@@ -296,17 +306,17 @@ div.hidden {
 
 .rename_window input[type=button]:hover {
   cursor: pointer;
-  filter: brightness(80%)
+  filter: brightness(.85)
 }
 
 .rename_window .cancel-button {
-  background-color: #ff1c1c;
+  background-color: #ff5353;
   grid-row: 5;
   grid-column: span 2;
 }
 
 .rename_window .confirm-button {
-  background-color: #1fca1f;
+  background-color: #7bee46;
   grid-row: 5;
   grid-column: 5 / span 2;
 }

@@ -101,6 +101,7 @@ function App() {
 
   function setNewTodoName () {
     // Change todo's name to new
+    if (renameState.value.trim() === "") return;
     setTodos(prevTodos => {
       let newArr = [...prevTodos];
       newArr[renameState.id].text = renameState.value;
@@ -130,7 +131,6 @@ function App() {
     <div className="App" id={darkMode ? "dark" : ""} onClick={closeAllDropdowns}>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      {/* TODO!!! Надо сделать стиль окошка */}
       <div className={"rename_popup" + (renameState.hidden ? " hidden" : "")}>
         <div className="rename_window">
           <div className="rename_window_container">
